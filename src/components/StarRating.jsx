@@ -1,26 +1,13 @@
-import { useState } from "react";
-
-function StarRating() {
-  const [rating, setRating] = useState(0);
+function StarRatings({ rating }) {
+  const totalStars = 5;
 
   return (
     <div>
-      {[1, 2, 3, 4, 5].map((star) => (
-        <span
-          key={star}
-          onClick={() => setRating(star)}
-          style={{
-            cursor: "pointer",
-            fontSize: "24px",
-            color: star <= rating ? "gold" : "gray",
-          }}
-        >
-          ⭐
-        </span>
+      {Array.from({ length: totalStars }, (_, index) => (
+        <span key={index}>{index < rating ? "⭐" : "☆"}</span>
       ))}
-      <p>Rating: {rating}/5</p>
     </div>
   );
 }
 
-export default StarRating;
+export default StarRatings;

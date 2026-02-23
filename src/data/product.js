@@ -58,7 +58,7 @@ const products = [
     id: 6,
     name: "Subha wali Coffee",
     desc: "qwertyertyrtchyjvtukbyiun",
-    dateCreated: new Date(),
+    dateCreated: 2027,
     warranty: 2,
     price: 569,
     isAvailable: true,

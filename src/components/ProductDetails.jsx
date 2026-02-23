@@ -1,39 +1,37 @@
-import StarRating from "./StarRating";
-
 function ProductDetails({ product, onBack }) {
   return (
-    <div className="detail">
-      {/* Back Button */}{" "}
+    <div className="details-container">
       <button className="back-btn" onClick={onBack}>
-        ⬅ Back{" "}
+        ← Back
       </button>
-      <div className="detail-card">
-        {/* Image */}
-        <img src={product.image} alt={product.name} className="detail-img" />
 
-        {/* Info */}
-        <div className="detail-info">
+      <div className="details-layout">
+        {/* LEFT IMAGE */}
+        <div className="details-image">
+          <img src={product.image} alt={product.name} />
+        </div>
+
+        {/* RIGHT INFO */}
+        <div className="details-info">
           <h2>{product.name}</h2>
 
-          <h3 className="price">₹{product.price}</h3>
+          <p className="details-desc">{product.desc}</p>
 
-          <StarRating rating={product.rating} />
-
-          <p className="desc">{product.desc}</p>
+          <p className="details-price">₹ {product.price}</p>
 
           <p>
-            <b>Warranty:</b> {product.warranty} years
+            Warranty: <strong>{product.warranty} years</strong>
           </p>
 
-          <p>
-            <b>Created:</b> {product.dateCreated}
+          <p
+            className={
+              product.isAvailable ? "badge in-stock" : "badge out-stock"
+            }
+          >
+            {product.isAvailable ? "In Stock" : "Out of Stock"}
           </p>
 
-          <p className={product.isAvailable ? "stock in" : "stock out"}>
-            {product.isAvailable ? "In Stock ✅" : "Out of Stock ❌"}
-          </p>
-
-          <button className="cart-btn">🛒 Add to Cart</button>
+          <button className="add-cart-btn">Add to Cart</button>
         </div>
       </div>
     </div>
